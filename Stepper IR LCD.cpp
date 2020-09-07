@@ -1,8 +1,13 @@
 //     LCD PARA DEBUG, COMANDO IR E STEPPER
 
 #include <Stepper.h>
+#include <AccelStepper.h>
 #include <LiquidCrystal.h>
 #include <IRremote.h>
+
+
+#define FULLSTEP 4
+#define HALFSTEP 8
 
 // LCD
 LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
@@ -15,15 +20,34 @@ unsigned long key_value = 0;
 
 // STEPPER
 const int stepsPerRevolution = 2048;  // change this to fit the number of steps per revolution
-const int rolePerMinute = 15;         // Adjustable range of 28BYJ-48 stepper is 0~17 rpm
-Stepper myStepper(stepsPerRevolution, 2, 4, 3, 5);
+const int rolePerMinute = 12;         // Adjustable range of 28BYJ-48 stepper is 0~17 rpm
 
 
 
+
+Stepper myStepper1(stepsPerRevolution, 41, 45, 43, 47);
+//Stepper myStepper1(stepsPerRevolution, 47, 43, 45, 41);
+
+
+//Stepper myStepper2(stepsPerRevolution, 2, 4, 3, 5);
+//Stepper myStepper2(stepsPerRevolution, 40, 44, 42, 46);
+AccelStepper newStepper(HALFSTEP, 40, 44, 42, 46);
+
+
+//Stepper myStepper3(stepsPerRevolution, 23, 27, 25, 29);
 
 void setup()
 {
-  myStepper.setSpeed(rolePerMinute);
+  myStepper1.setSpeed(rolePerMinute);
+  //myStepper2.setSpeed(rolePerMinute);
+  //myStepper3.setSpeed(rolePerMinute);
+
+
+  newStepper.setMaxSpeed(1000.0);
+  newStepper.setAcceleration(50.0);
+  newStepper.setSpeed(200);
+  newStepper.moveTo(2048);  // 1 revolution 
+
 
   lcd.begin(16, 2);
   lcd.setCursor(0, 0);
@@ -51,128 +75,95 @@ void loop() {
   lcd.setCursor(0, 1);
   lcd.print("  BUTTON PRESS");
     if (irrecv.decode(&results)) {
-    	if (results.value == 0XFFFFFFFF){
-        	results.value = key_value;
-    	}
+      if (results.value == 0XFFFFFFFF){
+          results.value = key_value;
+      }
 
 
 
-      	switch(results.value){
-          	case 0xFF30CF:    // 1  
-          	case 0x9716BE3F:    
-         		lcd.clear();
- 				lcd.setCursor(0, 0);
- 				lcd.print("    BUTTON 1 ");
- 				myStepper.step(2048);
+        switch(results.value){
+            case 0xFF30CF:    // 1  
+            case 0x9716BE3F:    
+            lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("    BUTTON 1 ");
+        myStepper1.step(stepsPerRevolution);
 
- 				//delay(1000);
-         		break;
+        //delay(1000);
+            break;
 
-          	case 0xFF18E7:   // 2
-          	case 0x3D9AE3F7:
-          		lcd.clear();
- 				lcd.setCursor(0, 0);
- 				lcd.print("    BUTTON 2 ");
- 				for(int i =0;i<2048;i++){
- 					myStepper.step(1);
- 				}
+            case 0xFF18E7:   // 2
+            case 0x3D9AE3F7:
+              lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("    BUTTON 2 ");
+        
+        newStepper.moveTo(2048);  // 1 revolution 
+        
 
-         		break;
+            break;
 
-          	case 0xFF7A85:   // 3
-          	case 0x6182021B:
-          		lcd.clear();
- 				lcd.setCursor(0, 0);
- 				lcd.print("    BUTTON 3 ");
- 				myStepper.step(512);
-         		break;
+            case 0xFF7A85:   // 3
+            case 0x6182021B:
+              lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("    BUTTON 3 ");
+        //myStepper3.step(stepsPerRevolution);
+            break;
 
-          	case 0xFF10EF:   // 4
-          	case 0x8C22657B:
-          		lcd.clear();
- 				lcd.setCursor(0, 0);
- 				lcd.print("    BUTTON 4 ");
- 				delay(2000);
-         		break;
+            case 0xFF10EF:   // 4
+            case 0x8C22657B:
+              lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("    BUTTON 4 ");
+        delay(2000);
+            break;
 
-          	case 0xFF38C7:   // 5
-          	case 0x488F3CBB:
-          		lcd.clear();
- 				lcd.setCursor(0, 0);
- 				lcd.print("    BUTTON 5 ");
- 				delay(2000);
-         		break;
+            case 0xFF38C7:   // 5
+            case 0x488F3CBB:
+              lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("    BUTTON 5 ");
+        delay(2000);
+            break;
 
-          	case 0xFF5AA5:   // 6
-          	case 0x449E79F:
-          		lcd.clear();
- 				lcd.setCursor(0, 0);
- 				lcd.print("    BUTTON 6 ");
- 				delay(2000);
-         		break;
+            case 0xFF5AA5:   // 6
+            case 0x449E79F:
+              lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("    BUTTON 6 ");
+        delay(2000);
+            break;
 
-          	case 0xFF42BD:   // 7
-          	//case 0x
-          		lcd.clear();
- 				lcd.setCursor(0, 0);
- 				lcd.print("    BUTTON 7 ");
- 				delay(2000);
-         		break;
+            case 0xFF42BD:   // 7
+            //case 0x
+              lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("    BUTTON 7 ");
+        delay(2000);
+            break;
 
-          	case 0xFF4AB5:   // 8
-          	case 0xFF1BC01:
-          		lcd.clear();
- 				lcd.setCursor(0, 0);
- 				lcd.print("    BUTTON 8 ");
- 				delay(2000);
-         		break;
+            case 0xFF4AB5:   // 8
+            case 0xFF1BC01:
+              lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("    BUTTON 8 ");
+        delay(2000);
+            break;
 
-         	case 0xFF52AD:   // 9
-          		lcd.clear();
- 				lcd.setCursor(0, 0);
- 				lcd.print("    BUTTON 9 ");
- 				delay(2000);
-         		break;
+          case 0xFF52AD:   // 9
+              lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("    BUTTON 9 ");
+        delay(2000);
+            break;
 
-         	case 0xFF6897:   // 0
-          		lcd.clear();
- 				lcd.setCursor(0, 0);
- 				lcd.print("    BUTTON 0 ");
- 				delay(2000);
-         		break;
-
-
-
-
-
-
-
-         	case 0xFF906F:   // up    FF906F
-          		lcd.clear();
- 				lcd.setCursor(0, 0);
- 				lcd.print("      UP ");
- 				delay(2000);
-         		break;
-         	case 0xFFE01F:   // down  FFE01F
-          		lcd.clear();
- 				lcd.setCursor(0, 0);
- 				lcd.print("      DOWN ");
- 				delay(2000);
-         		break;         	
-         	case 0xFF22DD:   // left  FF22DD
-          		lcd.clear();
- 				lcd.setCursor(0, 0);
- 				lcd.print("      LEFT ");
- 				delay(2000);
-         		break;
-
-         	case 0xFFC23D:   // right FFC23D
-         	case 0x20FE4DBB:
-          		lcd.clear();
- 				lcd.setCursor(0, 0);
- 				lcd.print("     RIGHT ");
- 				delay(2000);
-         		break;
+          case 0xFF6897:   // 0
+              lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("    BUTTON 0 ");
+        delay(2000);
+            break;
 
 
 
@@ -180,13 +171,46 @@ void loop() {
 
 
 
+          case 0xFF906F:   // up    FF906F
+              lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("      UP ");
+        delay(2000);
+            break;
+          case 0xFFE01F:   // down  FFE01F
+              lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("      DOWN ");
+        delay(2000);
+            break;          
+          case 0xFF22DD:   // left  FF22DD
+              lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("      LEFT ");
+        delay(2000);
+            break;
 
-         	default:
-         	    lcd.clear();
-      			lcd.setCursor(4, 0);
-      			lcd.print(results.value, HEX);
-      			delay(2000);
-      			break;
+          case 0xFFC23D:   // right FFC23D
+          case 0x20FE4DBB:
+              lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("     RIGHT ");
+        delay(2000);
+            break;
+
+
+
+
+
+
+
+
+          default:
+              lcd.clear();
+            lcd.setCursor(4, 0);
+            lcd.print(results.value, HEX);
+            delay(2000);
+            break;
         }
 
 
