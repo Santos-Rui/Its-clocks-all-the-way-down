@@ -8,7 +8,7 @@ The clock body, gears and handles will be laser cut (3 or 5mm) MDF, the clock sh
 
 For V1 ill make a simple, scaled down version using off the shelf gears.
 
-V2 will be a full sized number (6 clocks, 12 motors). This will  already house the full size final power supply and the plan is to make it modular, so i can just add 3 more in the V3.
+V2 will be a full sized number (6 clocks, 12 motors). This will  already house the full size final power supply and the plan is to make it modular, so i can just add 3 more in the V3. Here ill need to implement some prettier control for the motors to move them in sync, and maybe some prettier transitions.
 
 V3 will be the full sized 4 numbers display. This will most likely require me to use shift registers or other way to expand IO.
 
