@@ -4,7 +4,7 @@ A digital clock made of 24 analog clocks.
 
 Powered by an arduino, each clock handle is a stepper motor, totaling 48 steppers.
 
-The clock body, gears and handles will be laser cut (3 or 5mm) MDF, the clock shaft? will be made with 8mm and 10mm alu. All pieces (but the gears) will be designed from scratch in corel draw.
+The clock body, gears and handles will be laser cut (3 or 5mm) MDF, the handle shafts (shaft?) will be made with solid 8mm and 10mm alu with 1mm wall. All pieces (but the gears) will be designed from scratch in corel draw.
 
 For V1 ill make a simple, scaled down version using off the shelf gears.
 
