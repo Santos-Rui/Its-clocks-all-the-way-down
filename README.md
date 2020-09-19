@@ -15,11 +15,11 @@ V3 will be the full sized 4 numbers display. This will most likely require me to
 V4 would be to make it double, or 4 times as big so i could play with the animations and different number designs. Most likely will never exist.
 
 Also if you are reading this, please help me design a better number 8...
-<p align="center">
-  <img src="/Images/Main.jpg" width="500">
 
-  <img src="/Images/Numeros.jpg" width="500">
-</p>
+
+<img src="/Images/Main.jpg" width="500"> <img src="/Images/Numeros.jpg" width="500">
+
+
 ## V1
 
 <img src="/Images/V1/Setup.jpg" width="500"> <img src="/Images/V1/Gears.jpg" width="500">
