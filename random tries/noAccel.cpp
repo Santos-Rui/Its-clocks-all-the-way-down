@@ -19,18 +19,16 @@ unsigned long key_value = 0;
 const int stepsPerRevolution = 2048;  // change this to fit the number of steps per revolution
 const int rolePerMinute = 12;         // Adjustable range of 28BYJ-48 stepper is 0~17 rpm
 
-Stepper myStepper1(stepsPerRevolution, 41, 45, 43, 47);
-Stepper myStepper2(stepsPerRevolution, 40, 44, 42, 46);
-Stepper myStepper3(stepsPerRevolution, 31, 35, 33, 37);
-Stepper myStepper4(stepsPerRevolution, 30, 34, 32, 36);
+Stepper myStepper1(stepsPerRevolution, 31, 35, 33, 37);
+Stepper myStepper2(stepsPerRevolution, 30, 33, 32, 36);
+
 
 
 void setup()
 {
   myStepper1.setSpeed(rolePerMinute);
   myStepper2.setSpeed(rolePerMinute);
-  myStepper3.setSpeed(rolePerMinute);
-  myStepper4.setSpeed(rolePerMinute);
+
 
   lcd.begin(16, 2);
   lcd.setCursor(0, 0);
@@ -51,7 +49,7 @@ void setup()
 
 void loop() {
 	myStepper1.step(stepsPerRevolution/2);
-  myStepper3.step(stepsPerRevolution/2);
- 	myStepper4.step(stepsPerRevolution/2);
+  myStepper2.step(stepsPerRevolution/2);
+
  	delay(2000);
 }
