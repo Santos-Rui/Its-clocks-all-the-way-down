@@ -22,8 +22,8 @@ Also if you are reading this, please help me design a better number 8...
 
 ## V1
 
-<img src="/Images/V1/V1-setup.jpg" width="500">
+<img src="/Images/v1/V1-setup.jpg" width="500">
 
-<img src="/Images/V1/V1-gears.jpg" width="500">
+<img src="/Images/v1/V1-gears.jpg" width="500">
 
 
