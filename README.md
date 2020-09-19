@@ -38,4 +38,4 @@ Fit test
 Diagrams to laser cut
 
 
-<img src="/Diagrams/diagram.png" width="500">
+<img src="/Diagrams/diagram.png" width="1000">
