@@ -1,4 +1,4 @@
-## Its clocks all the-way down...
+## Its clocks all the way down...
 
 A digital clock made of 24 analog clocks.
 
@@ -21,3 +21,9 @@ Also if you are reading this, please help me design a better number 8...
 <img src="/Images/Numeros.jpg" width="500">
 
 ## V1
+
+<img src="/Images/V1/V1-setup.jpg" width="500">
+
+<img src="/Images/V1/V1-gears.jpg" width="500">
+
+
