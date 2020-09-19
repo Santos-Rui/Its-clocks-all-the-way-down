@@ -37,5 +37,11 @@ Fit test
 
 Diagrams to laser cut
 
-
 <img src="/Diagrams/diagram.png" width="1000">
+
+First cutting try
+
+<img src="Images/V2/Laser.jpg" width="1000">
+
+
+
