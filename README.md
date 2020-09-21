@@ -39,9 +39,16 @@ Diagrams to laser cut
 
 <img src="/Diagrams/diagram.png" width="1000">
 
-First cutting try
+First laser cutting try
 
 <img src="Images/V2/Laser.jpg" width="1000">
+
+Motors and corresponding gears installed. Also power supply and some power cable routing
+
+
+<img src="Images/V2/Main-Gears.jpg" width="500">
+
+<img src="Images/V2/Motors1.jpg" width="500">
 
 
 
