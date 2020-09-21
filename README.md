@@ -27,9 +27,21 @@ Also if you are reading this, please help me design a better number 8...
 
 <img src="/Images/V1/gif.gif" width="500">
 
+
 ## V2
+
 Fit test
+
 <img src="/Images/V2/Tests.jpg" width="500">
 
+
 Diagrams to laser cut
-<img src="/Images/Diagrams/diagram.png" width="500">
+
+<img src="/Diagrams/diagram.png" width="1000">
+
+First cutting try
+
+<img src="Images/V2/Laser.jpg" width="1000">
+
+
+
