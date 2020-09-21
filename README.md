@@ -46,9 +46,7 @@ First laser cutting try
 Motors and corresponding gears installed. Also power supply and some power cable routing
 
 
-<img src="Images/V2/Main-Gears.jpg" width="500">
-
-<img src="Images/V2/Motors1.jpg" width="500">
+<img src="Images/V2/Main-Gears.jpg" width="500"> <img src="Images/V2/Motors1.jpg" width="500">
 
 
 
