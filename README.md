@@ -17,7 +17,7 @@ V4 would be to make it double, or 4 times as big so i could play with the animat
 Also if you are reading this, please help me design a better number 8...
 
 
-<img src="/Images/Main.jpg" width="400"> <img src="/Images/Numeros.jpg" width="400">
+<img src="/Images/Main.jpg" width="450"> <img src="/Images/Numeros.jpg" width="450">
 
 
 ## V1
