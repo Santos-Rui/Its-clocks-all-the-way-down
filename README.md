@@ -22,31 +22,31 @@ Also if you are reading this, please help me design a better number 8...
 
 ## V1
 
-<img src="/Images/V1/Setup.jpg" width="500"> <img src="/Images/V1/Gears.jpg" width="500">
+<img src="/Images/V1/Setup.jpg" width="450"> <img src="/Images/V1/Gears.jpg" width="450">
 
 
-<img src="/Images/V1/gif.gif" width="500">
+<img src="/Images/V1/gif.gif" width="450">
 
 
 ## V2
 
 Fit test
 
-<img src="/Images/V2/Tests.jpg" width="500">
+<img src="/Images/V2/Tests.jpg" width="450">
 
 
 Diagrams to laser cut
 
-<img src="/Diagrams/diagram.png" width="1000">
+<img src="/Diagrams/diagram.png" width="900">
 
 First laser cutting try
 
-<img src="Images/V2/Laser.jpg" width="1000">
+<img src="Images/V2/Laser.jpg" width="900">
 
 Motors and corresponding gears installed. Also power supply and some power cable routing
 
 
-<img src="Images/V2/Main-Gears.jpg" width="500"> <img src="Images/V2/Motors1.jpg" width="500">
+<img src="Images/V2/Main-Gears.jpg" width="450"> <img src="Images/V2/Motors1.jpg" width="450">
 
 
 
