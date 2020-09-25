@@ -52,7 +52,7 @@ All driver boards installed, and motor cables routed.
 
 <img src="Images/V2/Drivers.jpg" width="450"> 
 
-The plan was to solder every power and data cable. My soldering iron is shit, and while the new one doesnt come, ill settle for custom cable lenght. Seems tidy enough
+The plan was to solder every power and data cable, but soldering iron is shit and makes it way too hard, while the new one doesnt come, ill settle for custom cable lenght. Seems tidy enough
 
 All power cables done
 
