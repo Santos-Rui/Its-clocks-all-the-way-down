@@ -17,36 +17,47 @@ V4 would be to make it double, or 4 times as big so i could play with the animat
 Also if you are reading this, please help me design a better number 8...
 
 
-<img src="/Images/Main.jpg" width="500"> <img src="/Images/Numeros.jpg" width="500">
+<img src="/Images/Main.jpg" width="450"> <img src="/Images/Numeros.jpg" width="450">
 
 
 ## V1
 
-<img src="/Images/V1/Setup.jpg" width="500"> <img src="/Images/V1/Gears.jpg" width="500">
+<img src="/Images/V1/Setup.jpg" width="450"> <img src="/Images/V1/Gears.jpg" width="450">
 
 
-<img src="/Images/V1/gif.gif" width="500">
+<img src="/Images/V1/gif.gif" width="450">
 
 
 ## V2
 
 Fit test
 
-<img src="/Images/V2/Tests.jpg" width="500">
+<img src="/Images/V2/Tests.jpg" width="450">
 
 
 Diagrams to laser cut
 
-<img src="/Diagrams/diagram.png" width="1000">
+<img src="/Diagrams/diagram.png" width="900">
 
 First laser cutting try
 
-<img src="Images/V2/Laser.jpg" width="1000">
+<img src="Images/V2/Laser.jpg" width="900">
 
 Motors and corresponding gears installed. Also power supply and some power cable routing
 
 
-<img src="Images/V2/Main-Gears.jpg" width="500"> <img src="Images/V2/Motors1.jpg" width="500">
+<img src="Images/V2/Main-Gears.jpg" width="450"> <img src="Images/V2/Motors1.jpg" width="450">
 
+All driver boards installed, and motor cables routed.
 
+<img src="Images/V2/Drivers.jpg" width="450"> 
 
+The plan was to solder every power and data cable. My soldering iron is shit, and while the new one doesnt come, ill settle for custom cable lenght. Seems tidy enough
+
+All power cables done
+
+<img src="Images/V2/PowerCables.jpg" width="450">
+
+At this point the soldering iron commited sudoku and melted itself, somwehow. So for now ill have this spaghetti bundle of data cables...
+
+<img src="Images/V2/DataCables.jpg" width="450">
