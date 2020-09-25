@@ -57,3 +57,7 @@ The plan was to solder every power and data cable. My soldering iron is shit, an
 All power cables done
 
 <img src="Images/V2/PowerCables.jpg" width="450">
+
+At this point the soldering iron commited sudoku and melted itself, somwehow. So for now ill have this spaghetti bundle of data cables...
+
+<img src="Images/V2/DataCables.jpg" width="450">
