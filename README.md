@@ -52,12 +52,12 @@ All driver boards installed, and motor cables routed.
 
 <img src="Images/V2/Drivers.jpg" width="450"> 
 
-The plan was to solder every power and data cable. My soldering iron is shit, and while the new one doesnt come, ill settle for custom cable lenght. Seems tidy enough
+The plan was to solder every power and data cable, but soldering iron is shit and makes it way too hard, while the new one doesnt come, ill settle for custom cable lenght. Seems tidy enough
 
 All power cables done
 
 <img src="Images/V2/PowerCables.jpg" width="450">
 
-At this point the soldering iron commited sudoku and melted itself, somwehow. So for now ill have this spaghetti bundle of data cables...
+At this point the soldering iron commited sudoku and melted itself, somwehow. So for now ill have this spaghetti bundle of data cables to match the code i'll write for it after.
 
 <img src="Images/V2/DataCables.jpg" width="450">
