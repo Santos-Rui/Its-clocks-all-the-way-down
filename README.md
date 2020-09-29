@@ -61,3 +61,8 @@ All power cables done
 At this point the soldering iron commited sudoku and melted itself, somwehow. So for now ill have this spaghetti bundle of data cables to match the code i'll write for it after.
 
 <img src="Images/V2/DataCables.jpg" width="450">
+
+After fixing a bunch of faulty cables, everything seems to be working on both eletrical and mechanical side.
+
+
+<img src="Images/V2/GearsGif.gif" width="450">
