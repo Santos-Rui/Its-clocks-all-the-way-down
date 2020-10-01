@@ -36,8 +36,6 @@ Stepper myStepper3m(stepsPerRevolution, A0, A2, A1, A3 );
 Stepper myStepper4m(stepsPerRevolution, A12, A14, A13, A15 );
 Stepper myStepper4h(stepsPerRevolution, 38 , 42 , 40  , 44 );
 
-
-
 Stepper myStepper5m(stepsPerRevolution,47 , 51 , 49  , 53 );
 Stepper myStepper5h(stepsPerRevolution, 46 , 50 , 48  , 52 ); 
 
@@ -84,25 +82,10 @@ myStepper6h.setSpeed(rolePerMinute);
 
 
 void loop() {
+    delay(5000);
+
   myStepper1m.step(stepsPerRevolution/2);
-myStepper1h.step(stepsPerRevolution/2);
 
-myStepper2m.step(stepsPerRevolution/2);
-myStepper2h.step(stepsPerRevolution/2);
-
-myStepper3h.step(stepsPerRevolution/2);
-myStepper3m.step(stepsPerRevolution/2);
-
-myStepper4m.step(stepsPerRevolution/2);
-myStepper4h.step(stepsPerRevolution/2);
-
-
-
-myStepper5m.step(stepsPerRevolution/2);
-myStepper5h.step(stepsPerRevolution/2);
-
-myStepper6m.step(stepsPerRevolution/2);
-myStepper6h.step(stepsPerRevolution/2);
   
   
   delay(5000);
