@@ -12,9 +12,9 @@ V2 will be a full sized number (6 clocks, 12 motors). This will  already house t
 
 V3 will be a second iteraion with only number display, the backlash in the gearing was way to high, making it unusable.
 
-~~V3~~V4 will be the full sized 4 numbers display. This will most likely require me to use shift registers or other way to expand IO.
+~~V3~~ V4 will be the full sized 4 numbers display. This will most likely require me to use shift registers or other way to expand IO.
 
-~~V4~~V5 would be to make it double, or 4 times as big so i could play with the animations and different number designs. Most likely will never exist.
+~~V4~~ V5 would be to make it double, or 4 times as big so i could play with the animations and different number designs. Most likely will never exist.
 
 Also if you are reading this, please help me design a better number 8...
 
