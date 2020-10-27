@@ -75,6 +75,13 @@ At this point i can start with the coding. The obvious problem is that moving a 
 
 The code was kinda working, but i need better base to actually test it. Ill redo V2 with a new mid-plate, and try to sodder everything, instead of connecting. 
 
+Made some mockups to test the tolerance. Computer modeling can only take me so far, the laser cut, even though only 0.2mm ends up adding up to a big error
+
+<img src="Images/V3/Tests.jpg" width="450">
+
+And a new midplate is born
+
+<img src="Images/V2/Midplate.jpg" width="450">
 
 
 ## TO DO
