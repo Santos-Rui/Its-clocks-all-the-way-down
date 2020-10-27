@@ -31,7 +31,9 @@ Also if you are reading this, please help me design a better number 8...
 
 
 ## V2
-
+<v2>
+   <summary>Click to expand!</summary>
+  
 Fit test
 
 <img src="/Images/V2/Tests.jpg" width="450">
@@ -70,6 +72,7 @@ The only problem is related to the gears. At this point the clock handles have s
 ### Coding
 
 At this point i can start with the coding. The obvious problem is that moving a motor is a blocking function, so to move many motors simultaneously i will need to move all of them in tiny increments at a very fast pace. The AccelStepper library handles this already(to a degree), but i'm going to try an implementation from scracth. Ill compare it against AccelStepper later and see which fits better.
+</v2>
 
 ## V3
 
