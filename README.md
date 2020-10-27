@@ -74,3 +74,13 @@ At this point i can start with the coding. The obvious problem is that moving a 
 ## V3
 
 The code was kinda working, but i need better base to actually test it. Ill redo V2 with a new mid-plate, and try to sodder everything, instead of connecting. 
+
+
+
+## TO DO
+
+Shift Registers - Expand IO 
+
+Using the same cable for 1-2 pin on every motor can theoretically give me 50% less IO ports needed.
+
+Turning every motor on and off on every step can also theoretically make me only need the current that one motor uses, and make it possible to wire them all in the same simple circuit, but can lead to drift overtime, will need testing.
