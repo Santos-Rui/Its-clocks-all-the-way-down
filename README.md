@@ -81,7 +81,7 @@ Made some mockups to test the tolerance. Computer modeling can only take me so f
 
 And a new midplate is born
 
-<img src="Images/V2/Midplate.jpg" width="450">
+<img src="Images/V3/Midplate.jpg" width="450">
 
 
 ## TO DO
