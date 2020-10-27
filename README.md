@@ -23,12 +23,13 @@ Also if you are reading this, please help me design a better number 8...
 
 
 ## V1
-
+<details>
+  <summary>Click to expand!</summary>
 <img src="/Images/V1/Setup.jpg" width="450"><img src="/Images/V1/Gears.jpg" width="450">
 
 
 <img src="/Images/V1/gif.gif" width="450">
-
+</details>
 
 ## V2
 <details>
