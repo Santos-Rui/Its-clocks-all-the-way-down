@@ -3,41 +3,47 @@
 #include <Stepper.h>
 
 const int stepsPerRev = 2048; // change this to fit the number of steps per revolution
-const int RPM = 12;           // Adjustable range of 28BYJ-48 stepper is 0~17 rpm
-const int lap = 1024;
+const int RPM = 15;           // Adjustable range of 28BYJ-48 stepper is 0~17 rpm
+const int lap = 2048*2;
 const int nrMotors = 12;
 
 
 
 
 struct motor {
-  	int currentPos;
- 	int targetPos;
+  	int currentPos = 0;
+ 	int targetPos = 0;
+ 	int lap = 0;
   	int pins[4];
-	Stepper stepper =  Stepper(stepsPerRev,99,99,99,99);
+	Stepper stepper = Stepper(stepsPerRev,99,99,99,99);
  	
  	motor() {}
 
  	motor(int a, int b, int c, int d){
-      	Stepper  f (stepsPerRev, a , c , b , d ); //isto nao pode ser a melhor maneira, esta-me a falhar algo...
+      	Stepper  f (stepsPerRev, a , c , b , d ); 
       	stepper =  f;
-      	//stepper.setSpeed(RPM);
-     	pins[0]=a;pins[1]=b;pins[2]=c;pins[3]=d;
+      	//isto nao pode ser a melhor maneira, esta-me a falhar algo...
+
+        pins[0]=a;pins[1]=b;pins[2]=c;pins[3]=d;
       	currentPos=targetPos=0;
   	}
 
-  	void setTarget(int target) { targetPos = target;}
+  	void setTarget(int target) {
+  		targetPos = target;
+  		lap++;
+  	}
 
   	void step() {
     	//Serial.write("Step Func\n");
     	//Serial.write(currentPos);
 
-    	if (currentPos==1024){
+    	if (currentPos==lap){
         	currentPos=0;
+        	lap--;
         	//Serial.write("Position restart\n");
       	}
 
-    	if (currentPos != targetPos){
+    	if (lap>0 || currentPos < targetPos){
      	   stepper.step(1);
      	   currentPos++;
      	   //Serial.write("Step!\n");
@@ -46,7 +52,9 @@ struct motor {
 };
 
 
-struct motor motors[nrMotors]; //array with the motors themselves. Estou a duplicar a memoria necessaria?
+
+//array with the motors themselves. Estou a duplicar a memoria necessaria?
+struct motor motors[nrMotors];
 //1 2 
 //3 4
 //5 6
@@ -54,24 +62,25 @@ struct motor motors[nrMotors]; //array with the motors themselves. Estou a dupli
 
 
 void createMotor() {
-	motors[0] = motor( 31 , 35 , 33 , 37 );  //1 top
-	motors[1] = motor( 30 , 34 , 32 , 36 );  //1 bottom
+	motors[0] = motor( 14  , 15 ,  16, 17 );  //1 top       
+	motors[1] = motor( 22 ,  24  ,26 , 28 );  //1 bottom   
 	
-	motors[2] = motor( 22 , 26 , 24 , 28 );  //2 top
-	motors[3] = motor( 39 , 43 , 41 , 45 );  //2 bottom
+	motors[2] = motor( 2  ,  3  , 4  ,  5 );  //2 top         
+	motors[3] = motor( 6 ,   7  ,  8 ,  9 );  //2 bottom     
 	
-	motors[4] = motor( 23 , 27 , 25 , 29 );  //3 top
-	motors[5] = motor( A0, A2, A1, A3 );     //3 bottom
+	motors[4] = motor( 23 ,  25 , 27 , 29 );  //3 top       
+	motors[5] = motor( 38 ,  40  ,42 , 44 );  //3 bottom
 	
-	motors[6] = motor( A12, A14, A13, A15 ); //4 top
-	motors[7] = motor( 38 , 42 , 40  , 44 ); //4 bottom
+	motors[6] = motor( 10 ,  11 , 12 , 13 );  //4 top           
+	motors[7] = motor( 46 , 48  , 50 , 52 );  //4 bottom  
 	
-	motors[8] = motor(47 , 51 , 49  , 53 );  //5 top
-	motors[9] = motor( 46 , 50 , 48  , 52 ); //5 bottom
+	motors[8] = motor( A0,  A1 ,  A2,  A3 );  //5 top    
+	motors[9] = motor( A4,  A5 ,  A6 , A7 );  //5 bottom 
 	
-	motors[10] = motor( A8, A10, A9, A11 );  //6 top
-	motors[11] = motor( A4, A6, A5, A7 );    //6 bottom
+	motors[10] = motor( A8,  A9 , A10, A11 );  //6 top        
+	motors[11] = motor( A12,  A13, A14, A15);  //6 bottom     
 }
+
 
 void motorSetup() {
   for (int i = 0; i < nrMotors; i++) {
@@ -98,15 +107,20 @@ void setup(){
   	delay(5000);
   
  	//Serial.write("Exiting setup\n");
- 	motors[0].targetPos=768;
+ 	for(int a=0;a<nrMotors;a++){
+ 		motors[a].targetPos=8000;
+ 	}
 }
 
 
 
 void loop() {
   	//Serial.write("Loop\n");
-	moveAll();
+	//moveAll();
   	//delay(50);
+  	for(int a=0;a<12;a++){
+  		motors[a].stepper.step(5000);
+  	}
 }
 
 
