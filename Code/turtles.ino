@@ -1,36 +1,37 @@
-//  code for the V2 clock
+//  code for the V3 clock
 
 #include <Stepper.h>
 
 const int stepsPerRev = 2048; // change this to fit the number of steps per revolution
 const int RPM = 15;           // Adjustable range of 28BYJ-48 stepper is 0~17 rpm
-const int lap = 2048*2;
+const int lap = 4096;
 const int nrMotors = 12;
 
 
-
+//int numeros[12];
+//numeros[0]=[0,0,0,0,0,0,0,0,0,0,0,0,];
 
 struct motor {
   	int currentPos = 0;
  	int targetPos = 0;
  	int lap = 0;
   	int pins[4];
-	Stepper stepper = Stepper(stepsPerRev,99,99,99,99);
+	Stepper stepper = Stepper(stepsPerRev,95,97,96,98);
  	
  	motor() {}
 
  	motor(int a, int b, int c, int d){
-      	Stepper  f (stepsPerRev, a , c , b , d ); 
+      	Stepper  f (stepsPerRev, d , c , b , a ); 
       	stepper =  f;
       	//isto nao pode ser a melhor maneira, esta-me a falhar algo...
 
         pins[0]=a;pins[1]=b;pins[2]=c;pins[3]=d;
-      	currentPos=targetPos=0;
+      	currentPos=targetPos=lap=0;
   	}
 
   	void setTarget(int target) {
+  		if(target>=currentPos){lap=1;}  //se tivermos a fretne temos de dar a volta
   		targetPos = target;
-  		lap++;
   	}
 
   	void step() {
@@ -43,7 +44,7 @@ struct motor {
         	//Serial.write("Position restart\n");
       	}
 
-    	if (lap>0 || currentPos < targetPos){
+    	if (lap > 0 || currentPos < targetPos){
      	   stepper.step(1);
      	   currentPos++;
      	   //Serial.write("Step!\n");
@@ -88,7 +89,15 @@ void motorSetup() {
   }
 }
 
-void turnOffAll(){}//??
+void turnOffAll(){
+	for (int i = 0; i < nrMotors; i++) {
+    	digitalWrite(motors[i].pins[0], LOW);
+        digitalWrite(motors[i].pins[1], LOW);
+        digitalWrite(motors[i].pins[2], LOW);
+        digitalWrite(motors[i].pins[3], LOW);
+  	}
+}
+
 
 void moveAll(){
 	for (int i = 0; i < nrMotors; i++) {
@@ -101,14 +110,13 @@ void moveAll(){
 void setup(){
  	//Serial.begin(9600);
  	//Serial.write("Starting setup\n");
-
     createMotor();
   	motorSetup();
-  	delay(5000);
+  	delay(2000);
   
  	//Serial.write("Exiting setup\n");
- 	for(int a=0;a<nrMotors;a++){
- 		motors[a].targetPos=8000;
+ 	for(int a=0;a<1;a++){
+ 		motors[a].setTarget(lap/2);
  	}
 }
 
@@ -116,11 +124,7 @@ void setup(){
 
 void loop() {
   	//Serial.write("Loop\n");
-	//moveAll();
-  	//delay(50);
-  	for(int a=0;a<12;a++){
-  		motors[a].stepper.step(5000);
-  	}
+	moveAll();
 }
 
 
