@@ -1,11 +1,34 @@
 //  code for the V3 clock
 
 #include <Stepper.h>
+#include <IRremote.h>
 
-const int stepsPerRev = 2038; // change this to fit the number of steps per revolution
+
+const int stepsPerRev = 2048; // change this to fit the number of steps per revolution
+const int lapFull = 4096;
+const int qlap = 1024;
+
 const int RPM = 15;           // Adjustable range of 28BYJ-48 stepper is 0~17 rpm
-const int lap = 4076;
 const int nrMotors = 12;
+
+// IR
+int RECV_PIN = 34;
+IRrecv irrecv(RECV_PIN);
+decode_results results;
+unsigned long key_value = 0;
+//IR
+
+int rest[12]={0,0,0,0,0,0,0,0,0,0,0,0};
+int zero[12]={1024,2048,2048,3072,0,2048,0,2048,0,1024,0,3072};
+int um[12]={3584,3584,2048,2048,3584,3584,0,2048,3584,3584,0,0};
+int dois[12] = {1024,1024,3072,2048,1024,2048,0,3072,0,1024,3072,3072};
+int tres[12] ={1024,1024,3072,2048,1024,1024,3072,0,1024,1024,3072,0};
+int quatro[12] ={2048,2048,2048,2048,0,1024,0,2048,3584,3584,0,0};
+int cinco[12] ={1024,2048,3072,3072,0,1024,2048,3072,1024,1024,0,3072};
+int seis[12] ={1024,2048,3072,3072,0,2048,2048,3072,0,1024,3072,0};
+int sete[12] ={1024,1024,3072,2048,3584,3584,2048,0,3584,3584,0,0};
+int oito[12] ={1024,2048,2048,3072,0,1024,0,3072,0,1024,0,3072};
+int nove[12] ={1024,2048,2048,3072,0,1024,0,2048,1024,1024,0,3072};
 
 
 typedef struct smotor {
@@ -22,12 +45,15 @@ typedef struct smotor {
   }
 
   void setTarget(int target) {
-      if(target>=currentPos){lap=1;}  //se tivermos a fretne temos de dar a volta
+      if(target<=currentPos){lap=1;}  //se tivermos a fretne temos de dar a volta
+      
       targetPos = target;
+
   }
 
   void step() {
-      if (currentPos==lap){
+
+      if (currentPos==lapFull){
           currentPos=0;
           lap--;
       }
@@ -35,6 +61,12 @@ typedef struct smotor {
           stepper->step(1);
           currentPos++;
       } 
+//      Serial.println("Exiting step  lap =");
+//      Serial.println(lap);
+//      Serial.println("Cpos =");
+//      Serial.println(currentPos);
+//      Serial.println("Tpos =");
+//      Serial.println(targetPos);
   }
 }*motor;
 
@@ -82,24 +114,107 @@ void turnOffAll(){
 
 
 void moveAll(){
+
+
     for (int i = 0; i < nrMotors; i++) {
         listaMotors[i]->step();
     }
 }
 
+void draw(int lista[12]){
+  for(int a=0;a<12;a++){
+    listaMotors[a]->setTarget(lista[a]);
+  }
+}
 
 void setup(){
+    Serial.begin(9600);
+
     createMotor();
     motorSetup();
-    for(int a=0;a<1;a++){
-        listaMotors[a]->setTarget(lap/2);
-    }
+    irrecv.enableIRIn(); // Start  receiver
+
     delay(2000);
+    Serial.println("exiting setup");
 }
 
 
 void loop() {
-    moveAll();
+  if (irrecv.decode(&results)) {
+  // if (results.value == 0XFFFFFFFF){
+  //   results.value = key_value;
+  // }
+
+    switch(results.value){
+        
+      case 0xFF30CF:    // 1  
+      case 0x9716BE3F: 
+          draw(um); 
+      break;
+
+      case 0xFF18E7:   // 2
+      case 0x3D9AE3F7:
+          draw(dois); 
+      break;
+
+      case 0xFF7A85:   // 3
+      case 0x6182021B:
+          draw(tres); 
+      break;
+
+      case 0xFF10EF:   // 4
+      case 0x8C22657B:
+          draw(quatro); 
+      break;
+
+      case 0xFF38C7:   // 5
+      case 0x488F3CBB:
+        draw(cinco); 
+      break;
+
+      case 0xFF5AA5:   // 6
+      case 0x449E79F:
+         draw(seis); 
+      break;
+
+      case 0xFF42BD:   // 7
+          draw(sete);
+      break;
+
+      case 0xFF4AB5:   // 8
+      case 0xFF1BC01:
+          draw(oito);
+      break;
+
+      case 0xFF52AD:   // 9
+          draw(nove);
+      break;
+
+      case 0xFF6897:   // 0
+          draw(zero);
+      break;
+
+
+
+      case 0xFFA25D:   // POWER
+          draw(rest);
+      break;
+
+
+      default:
+      break;
+        }
+
+
+
+       
+      //Serial.println(results.value, HEX);
+      key_value = results.value;
+      irrecv.resume();// Receive the next value
+  }
+
+  moveAll();
+  //delay(30000);
 }
 
 
