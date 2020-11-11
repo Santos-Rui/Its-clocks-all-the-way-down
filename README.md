@@ -98,6 +98,13 @@ I could make it cleaner, but its good enough
 
 <img src="Images/V3/Midplate2.jpg" width="450"> <img src="Images/V3/Midplate3.jpg" width="450">
 
+
+On the mechanical side of things, gears are now running way smoother and with a fraction on the backlash.
+
+<img src="Images/V3/gears.gif" width="450">
+
+
+
 </details>
 
 ## TO DO
