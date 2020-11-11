@@ -107,8 +107,8 @@ I could make it cleaner, but its good enough
 Shift Registers - Expand IO 
   
 
-Using the same cable for 1-2 pin on every motor can theoretically give me 50% less IO ports needed.
+Using the same cable for 1-2 pin on every motor can theoretically give me 50% less IO ports needed. This will most likely NOT work
 
 
-Turning every motor on and off on every step can also theoretically make me only need the current that one motor uses, and make it possible to wire them all in the same simple circuit, but can lead to drift overtime, will need testing.
+Turning every motor on and off on every step can also theoretically make me only need the current that one motor uses, and make it possible to wire them all in the same  circuit only using like 500mA , but can lead to drift overtime, will need testing.
 </details>
