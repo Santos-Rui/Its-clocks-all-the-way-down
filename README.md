@@ -63,11 +63,11 @@ All power cables done
 
 <img src="Images/V2/PowerCables.jpg" width="450">
 
-At this point the soldering iron commited sudoku and melted itself, somwehow. So for now ill have this spaghetti bundle of data cables to match the code i'll write for it after. After fixing a bunch of faulty cables, everything seems to be working on both eletrical and mechanical side.
+At this point the soldering iron tip commited sudoku and melted itself, somehow. So for now ill have this spaghetti bundle of data cables to match the code i'll write for it after. After fixing a bunch of faulty cables, everything seems to be working on both eletrical and mechanical side.
 
 <img src="Images/V2/DataCables.jpg" width="450"> <img src="Images/V2/GearsGif.gif" width="450">
 
-The only problem is related to the gears. At this point the clock handles have somewhere between 5 and 10 degrees of play, not even close to acceptable. I ended up drilling the mottor mounts by hand, which led to some clearance between the cogs, added to the 2:1 ratio that doubled the ammount of error. I will need another iteration before going for the full clock only to handle the mechanical part, Version 2.5.
+The only problem is related to the gears. At this point the clock handles have somewhere between 5 and 10 degrees of play, not even close to acceptable. I ended up drilling the mottor mounts by hand, which led to some clearance between the cogs, added to the 2:1 ratio that doubled the ammount of error. I will need another iteration before going for the full clock only to handle the mechanical part.
 
 
 ### Coding
