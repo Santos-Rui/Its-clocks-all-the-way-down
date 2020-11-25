@@ -111,7 +111,7 @@ A bit of code and some clock dials and we got
 
 [![V3 Video](https://i.imgur.com/Odb7a2D.png)](https://www.youtube.com/watch?v=IXYgIu-C8u8 "V3 Video")
 
-Im pretty happy with the results
+Im pretty happy with the results, probably wont go any further, the repetitiveness  of the project is a bit overwhelming
 
 
 </details>
