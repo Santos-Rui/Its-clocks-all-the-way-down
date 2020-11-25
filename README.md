@@ -22,7 +22,7 @@ Also if you are still reading this, please help me design a better number 8, or 
 <img src="/Images/Main.jpg" width="450"><img src="/Images/Numeros.jpg" width="450">
 
 
-[![Audi R8](http://img.youtube.com/vi/KOxbO0EI4MA/0.jpg)](https://www.youtube.com/watch?v=KOxbO0EI4MA "Audi R8")
+[![V3 Video](https://i.imgur.com/Odb7a2D.png)](https://www.youtube.com/watch?v=IXYgIu-C8u8 "V3 Video")
 
 
 
