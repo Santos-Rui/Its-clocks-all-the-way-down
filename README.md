@@ -107,6 +107,11 @@ On the mechanical side of things, gears are now running way smoother and with a 
 
 <img src="Images/V3/gears.gif" width="450">
 
+A bit of code and some clock dials and we got
+
+[![V3 Video](https://i.imgur.com/Odb7a2D.png)](https://www.youtube.com/watch?v=IXYgIu-C8u8 "V3 Video")
+
+Im pretty happy with the results
 
 
 </details>
