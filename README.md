@@ -21,9 +21,9 @@ Also if you are still reading this, please help me design a better number 8, or 
 
 <img src="/Images/Main.jpg" width="450"><img src="/Images/Numeros.jpg" width="450">
 
-[Click me for Video](https://www.youtube.com/watch?v=IXYgIu-C8u8)
+[Click here for Video](https://www.youtube.com/watch?v=mT9d-I6LFRw)
 
-[![V3 Video](https://i.imgur.com/Odb7a2D.png)](https://www.youtube.com/watch?v=IXYgIu-C8u8 "V3 Video")
+[![V3 Video](https://i.imgur.com/Odb7a2D.png)](https://www.youtube.com/watch?v=mT9d-I6LFRw "V3 Video")
 
 
 
