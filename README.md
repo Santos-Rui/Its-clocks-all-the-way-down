@@ -110,9 +110,9 @@ On the mechanical side of things, gears are now running way smoother and with a 
 
 A bit of code and some clock dials and we got
 
-[![V3 Video](https://i.imgur.com/Odb7a2D.png)](https://www.youtube.com/watch?v=IXYgIu-C8u8 "V3 Video")
+[![V3 Video](https://i.imgur.com/Odb7a2D.png)](https://www.youtube.com/watch?v=mT9d-I6LFRw "V3 Video")
 
-Im pretty happy with the results, probably wont go any further, the repetitiveness  of the project is a bit overwhelming
+Im pretty happy with the results, not sure ill go any further, the repetitiveness  of the project is a bit overwhelming
 
 
 </details>
