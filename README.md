@@ -10,6 +10,8 @@ Why? because i'm part time masochist and like to have to do the same thing dozen
 
 <img src="/Images/Main.jpg" width="450"><img src="/Images/Numeros.jpg" width="450">
 
+[Click here for Video](https://www.youtube.com/watch?v=mT9d-I6LFRw)
+
 ~~The clock body, gears and handles will be laser cut (3 or 5mm) MDF, the handle shafts (shaft?) will be made with solid 8mm and 10mm alu with 1mm wall. All pieces (but the gears) will be designed from scratch in corel draw.~~
 
 The clock "main body" will probably still be plywood/mdf. The body will now be only a front plate where the clock modules, psu, arduino and cables will atach (Maybe a back one for structure/tidiness). Later i can just do a thin pretty front cover and hide the screws. I will have to drill by hand though, the full clock wont fit the laser cutter.
@@ -17,6 +19,8 @@ The clock "main body" will probably still be plywood/mdf. The body will now be o
 The clock mechanism modules will now be fully 3d modeled printed, contaning ball bearings. Super gluing mdf to alu wwas already hard, keeping it all straight and square proved almost impossible and not long lasting at all. This will also probably help reducing slack and noise while increasing smootheness in the rotation
 
 I'll also develop all the code (using some stepper libs) which will probably include some animations to make the transitions look nice, some kind of remote control, and maybe a small display for UI.
+
+Also if you are still reading this, please help me design a better number 8.
 
 
 ## Version 1 
@@ -134,15 +138,10 @@ Im pretty happy with the results, not sure ill go any further, the repetitivenes
 
 
 
-V(n+1) would be to make it double, or 4 times as big so i could play with the animations and different number designs. Most likely will never exist.
-
-Also if you are still reading this, please help me design a better number 8.
-
+## Version N+1
+This would be making it double, or 4 times as big so i could play with the animations and different number designs. Most likely will never exist.
 
 
-[Click here for Video](https://www.youtube.com/watch?v=mT9d-I6LFRw)
-
-[![V3 Video](https://i.imgur.com/Odb7a2D.png)](https://www.youtube.com/watch?v=mT9d-I6LFRw "V3 Video")
 
 
 
