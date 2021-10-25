@@ -15,7 +15,7 @@ The clock mechanism modules will now be fully 3d modeled printed, contaning ball
 I'll also develop all the code (using some stepper libs) which will probably include some animations to make the transitions look nice, some kind of remote control, and maybe a small display for UI.
 
 
-## V1 
+# V1 
 A simple, scaled down version using off the shelf gears. Only 1 clock for proof of concept
 
 **V2** will be a full sized number (6 clocks, 12 motors). This will  already house the full size final power supply and the plan is to make it modular, so i can just add 3 more in the V3. Here ill need to implement some prettier control for the motors to move them in sync, and maybe some prettier transitions.
