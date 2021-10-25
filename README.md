@@ -12,7 +12,7 @@ The clock "main body" will probably still be plywood/mdf. The body will now be o
 
 The clock mechanism modules will now be fully 3d modeled printed, contaning ball bearings. Super gluing mdf to alu wwas already hard, keeping it all straight and square proved almost impossible and not long lasting at all. This will also probably help reducing slack and noise while increasing smootheness in the rotation
 
-
+I'll also develop all the code (using some stepper libs) which will probably include some animations to make the transitions look nice, some kind of remote control, and maybe a small display for UI.
 
 
 For V1 ill make a simple, scaled down version using off the shelf gears.
