@@ -15,13 +15,13 @@ The clock mechanism modules will now be fully 3d modeled printed, contaning ball
 I'll also develop all the code (using some stepper libs) which will probably include some animations to make the transitions look nice, some kind of remote control, and maybe a small display for UI.
 
 
-For V1 ill make a simple, scaled down version using off the shelf gears.
+**V1** is a simple, scaled down version using off the shelf gears. Only 1 clock for proof of concept
 
-V2 will be a full sized number (6 clocks, 12 motors). This will  already house the full size final power supply and the plan is to make it modular, so i can just add 3 more in the V3. Here ill need to implement some prettier control for the motors to move them in sync, and maybe some prettier transitions.
+**V2** will be a full sized number (6 clocks, 12 motors). This will  already house the full size final power supply and the plan is to make it modular, so i can just add 3 more in the V3. Here ill need to implement some prettier control for the motors to move them in sync, and maybe some prettier transitions.
 
-V3 is second iteraion with only number display, the backlash in the gearing was way to high, making it unusable.
+**V3** is second iteraion with only number display, the backlash in the gearing was way to high, making it unusable.
 
-V5 (current) has 2 major differences. Modular clock mechanisms, 3d modedeled and printed. On the eletronics side i will need to expand the IO using shif registers or anything else that works really; the previous iteration had every stepper connected directly, which works but limits me at aprox 15 steppers.
+**V4** (current) has 2 major differences. Modular clock mechanisms, 3d modedeled and printed. On the eletronics side i will need to expand the IO using shif registers or anything else that works really; the previous iteration had every stepper connected directly, which works but limits me at aprox 15 steppers.
 
 
 V(n+1) would be to make it double, or 4 times as big so i could play with the animations and different number designs. Most likely will never exist.
