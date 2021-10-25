@@ -6,6 +6,10 @@ Powered by an arduino, each clock handle is a stepper motor, totaling 48 stepper
 
 Why? because i'm part time masochist and like to have to do the same thing dozens of times 
 
+
+
+<img src="/Images/Main.jpg" width="450"><img src="/Images/Numeros.jpg" width="450">
+
 ~~The clock body, gears and handles will be laser cut (3 or 5mm) MDF, the handle shafts (shaft?) will be made with solid 8mm and 10mm alu with 1mm wall. All pieces (but the gears) will be designed from scratch in corel draw.~~
 
 The clock "main body" will probably still be plywood/mdf. The body will now be only a front plate where the clock modules, psu, arduino and cables will atach (Maybe a back one for structure/tidiness). Later i can just do a thin pretty front cover and hide the screws. I will have to drill by hand though, the full clock wont fit the laser cutter.
@@ -135,7 +139,6 @@ V(n+1) would be to make it double, or 4 times as big so i could play with the an
 Also if you are still reading this, please help me design a better number 8.
 
 
-<img src="/Images/Main.jpg" width="450"><img src="/Images/Numeros.jpg" width="450">
 
 [Click here for Video](https://www.youtube.com/watch?v=mT9d-I6LFRw)
 
