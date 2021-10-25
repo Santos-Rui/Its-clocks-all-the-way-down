@@ -21,7 +21,7 @@ I'll also develop all the code (using some stepper libs) which will probably inc
 
 **V3** is second iteraion with only number display, the backlash in the gearing was way to high, making it unusable.
 
-**V4** (current) has 2 major differences. Modular clock mechanisms, 3d modedeled and printed. On the eletronics side i will need to expand the IO using shif registers or anything else that works really; the previous iteration had every stepper connected directly, which works but limits me at aprox 15 steppers.
+##V4 (current) has 2 major differences. Modular clock mechanisms, 3d modedeled and printed. On the eletronics side i will need to expand the IO using shif registers or anything else that works really; the previous iteration had every stepper connected directly, which works but limits me at aprox 15 steppers.
 
 
 V(n+1) would be to make it double, or 4 times as big so i could play with the animations and different number designs. Most likely will never exist.
