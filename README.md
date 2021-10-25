@@ -15,17 +15,23 @@ The clock mechanism modules will now be fully 3d modeled printed, contaning ball
 I'll also develop all the code (using some stepper libs) which will probably include some animations to make the transitions look nice, some kind of remote control, and maybe a small display for UI.
 
 
-### Version 1 
+## Version 1 
 A simple, scaled down version using off the shelf gears. Only 1 clock for proof of concept
+<details>
+  <summary>Click to expand!</summary>
+<img src="/Images/V1/Setup.jpg" width="450"><img src="/Images/V1/Gears.jpg" width="450">
 
 
-### Version 2 
+<img src="/Images/V1/gif.gif" width="450">
+</details>
+
+## Version 2 
 A full sized number (6 clocks, 12 motors). This will  already house the full size final power supply and the plan is to make it modular, so i can just add 3 more in the V3. Here ill need to implement some prettier control for the motors to move them in sync, and maybe some prettier transitions.
 
-### Version 3 
+## Version 3 
 A second iteraion with only number display, the backlash in the gearing was way to high, making it unusable.
 
-### Version 4 
+## Version 4 
 
 (Current) has 2 major differences. Modular clock mechanisms, 3d modedeled and printed. On the eletronics side i will need to expand the IO using shif registers or anything else that works really; the previous iteration had every stepper connected directly, which works but limits me at aprox 15 steppers.
 
@@ -43,14 +49,7 @@ Also if you are still reading this, please help me design a better number 8.
 
 
 
-## V1
-<details>
-  <summary>Click to expand!</summary>
-<img src="/Images/V1/Setup.jpg" width="450"><img src="/Images/V1/Gears.jpg" width="450">
 
-
-<img src="/Images/V1/gif.gif" width="450">
-</details>
 
 
 ## V2
