@@ -80,35 +80,6 @@ At this point i can start with the coding. The obvious problem is that moving a 
 ## Version 3 
 A second iteraion with only number display, the backlash in the gearing was way to high, making it unusable.
 
-
-
-
-
-
-## Version 4 
-(Current) has 2 major differences. Modular clock mechanisms, 3d modedeled and printed. On the eletronics side i will need to expand the IO using shif registers or anything else that works really; the previous iteration had every stepper connected directly, which works but limits me at aprox 15 steppers.
-
-
-V(n+1) would be to make it double, or 4 times as big so i could play with the animations and different number designs. Most likely will never exist.
-
-Also if you are still reading this, please help me design a better number 8.
-
-
-<img src="/Images/Main.jpg" width="450"><img src="/Images/Numeros.jpg" width="450">
-
-[Click here for Video](https://www.youtube.com/watch?v=mT9d-I6LFRw)
-
-[![V3 Video](https://i.imgur.com/Odb7a2D.png)](https://www.youtube.com/watch?v=mT9d-I6LFRw "V3 Video")
-
-
-
-
-
-
-## V2
-
-
-## V3
 <details>
   <summary>Click to expand!</summary>
 The code was kinda working, but i need better base to actually test it. Ill redo V2 with a new mid-plate, and try to sodder everything, instead of connecting. 
@@ -142,6 +113,35 @@ Im pretty happy with the results, not sure ill go any further, the repetitivenes
 
 
 </details>
+
+
+
+
+
+## Version 4 
+(Current) has 2 major differences. Modular clock mechanisms, 3d modedeled and printed. On the eletronics side i will need to expand the IO using shif registers or anything else that works really; the previous iteration had every stepper connected directly, which works but limits me at aprox 15 steppers.
+
+
+V(n+1) would be to make it double, or 4 times as big so i could play with the animations and different number designs. Most likely will never exist.
+
+Also if you are still reading this, please help me design a better number 8.
+
+
+<img src="/Images/Main.jpg" width="450"><img src="/Images/Numeros.jpg" width="450">
+
+[Click here for Video](https://www.youtube.com/watch?v=mT9d-I6LFRw)
+
+[![V3 Video](https://i.imgur.com/Odb7a2D.png)](https://www.youtube.com/watch?v=mT9d-I6LFRw "V3 Video")
+
+
+
+
+
+
+## V2
+
+
+## V3
 
 ## TO DO
 <details>
