@@ -31,7 +31,7 @@ A simple, scaled down version using off the shelf gears. Only 1 clock for proof 
 ## Version 2 
 A full sized number (6 clocks, 12 motors). This will  already house the full size final power supply and the plan is to make it modular, so i can just add 3 more in the V3. Here ill need to implement some prettier control for the motors to move them in sync, and maybe some prettier transitions.
 <details>
-  <summary>Click to expand!</summary>
+  <summary>Click to see more!</summary>
 
 Fit test
 
@@ -81,7 +81,7 @@ At this point i can start with the coding. The obvious problem is that moving a 
 A second iteraion with only number display, the backlash in the gearing was way to high, making it unusable.
 
 <details>
-  <summary>Click to expand!</summary>
+  <summary>Click to see more!</summary>
 The code was kinda working, but i need better base to actually test it. Ill redo V2 with a new mid-plate, and try to sodder everything, instead of connecting. 
 
 Made some mockups to test the tolerance. Computer modeling can only take me so far, the laser cut, even though only 0.2mm ends up adding up to a big error
@@ -122,6 +122,14 @@ Im pretty happy with the results, not sure ill go any further, the repetitivenes
 (Current) has 2 major differences. Modular clock mechanisms, 3d modedeled and printed. On the eletronics side i will need to expand the IO using shif registers or anything else that works really; the previous iteration had every stepper connected directly, which works but limits me at aprox 15 steppers.
 
 
+<details>
+  <summary>Click to see more!</summary>
+</details>
+
+
+
+
+
 V(n+1) would be to make it double, or 4 times as big so i could play with the animations and different number designs. Most likely will never exist.
 
 Also if you are still reading this, please help me design a better number 8.
@@ -136,12 +144,6 @@ Also if you are still reading this, please help me design a better number 8.
 
 
 
-
-
-## V2
-
-
-## V3
 
 ## TO DO
 <details>
