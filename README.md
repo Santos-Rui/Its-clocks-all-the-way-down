@@ -18,41 +18,18 @@ I'll also develop all the code (using some stepper libs) which will probably inc
 ## Version 1 
 A simple, scaled down version using off the shelf gears. Only 1 clock for proof of concept
 <details>
-  <summary>Click to expand!</summary>
+  <summary>Click to see more!</summary>
 <img src="/Images/V1/Setup.jpg" width="450"><img src="/Images/V1/Gears.jpg" width="450">
 
 
 <img src="/Images/V1/gif.gif" width="450">
 </details>
 
+
+
+
 ## Version 2 
 A full sized number (6 clocks, 12 motors). This will  already house the full size final power supply and the plan is to make it modular, so i can just add 3 more in the V3. Here ill need to implement some prettier control for the motors to move them in sync, and maybe some prettier transitions.
-
-## Version 3 
-A second iteraion with only number display, the backlash in the gearing was way to high, making it unusable.
-
-## Version 4 
-
-(Current) has 2 major differences. Modular clock mechanisms, 3d modedeled and printed. On the eletronics side i will need to expand the IO using shif registers or anything else that works really; the previous iteration had every stepper connected directly, which works but limits me at aprox 15 steppers.
-
-
-V(n+1) would be to make it double, or 4 times as big so i could play with the animations and different number designs. Most likely will never exist.
-
-Also if you are still reading this, please help me design a better number 8.
-
-
-<img src="/Images/Main.jpg" width="450"><img src="/Images/Numeros.jpg" width="450">
-
-[Click here for Video](https://www.youtube.com/watch?v=mT9d-I6LFRw)
-
-[![V3 Video](https://i.imgur.com/Odb7a2D.png)](https://www.youtube.com/watch?v=mT9d-I6LFRw "V3 Video")
-
-
-
-
-
-
-## V2
 <details>
   <summary>Click to expand!</summary>
 
@@ -96,6 +73,40 @@ The only problem is related to the gears. At this point the clock handles have s
 
 At this point i can start with the coding. The obvious problem is that moving a motor is a blocking function, so to move many motors simultaneously i will need to move all of them in tiny increments at a very fast pace. The AccelStepper library handles this already(to a degree), but i'm going to try an implementation from scracth. Ill compare it against AccelStepper later and see which fits better.
 </details>
+
+
+
+
+## Version 3 
+A second iteraion with only number display, the backlash in the gearing was way to high, making it unusable.
+
+
+
+
+
+
+## Version 4 
+(Current) has 2 major differences. Modular clock mechanisms, 3d modedeled and printed. On the eletronics side i will need to expand the IO using shif registers or anything else that works really; the previous iteration had every stepper connected directly, which works but limits me at aprox 15 steppers.
+
+
+V(n+1) would be to make it double, or 4 times as big so i could play with the animations and different number designs. Most likely will never exist.
+
+Also if you are still reading this, please help me design a better number 8.
+
+
+<img src="/Images/Main.jpg" width="450"><img src="/Images/Numeros.jpg" width="450">
+
+[Click here for Video](https://www.youtube.com/watch?v=mT9d-I6LFRw)
+
+[![V3 Video](https://i.imgur.com/Odb7a2D.png)](https://www.youtube.com/watch?v=mT9d-I6LFRw "V3 Video")
+
+
+
+
+
+
+## V2
+
 
 ## V3
 <details>
