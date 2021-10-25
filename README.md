@@ -4,7 +4,7 @@ A digital clock made of 24 analog clocks.
 
 Powered by an arduino, each clock handle is a stepper motor, totaling 48 steppers.
 
-Why? because i'm part time masochist and like to have to do the same thing dozens of times 
+Why? because i'm part time masochist and like to having to do the same thing dozens of times 
 
 
 
@@ -16,7 +16,7 @@ Why? because i'm part time masochist and like to have to do the same thing dozen
 
 The clock "main body" will probably still be plywood/mdf. The body will now be only a front plate where the clock modules, psu, arduino and cables will atach (Maybe a back one for structure/tidiness). Later i can just do a thin pretty front cover and hide the screws. I will have to drill by hand though, the full clock wont fit the laser cutter.
 
-The clock mechanism modules will now be fully 3d modeled printed, contaning ball bearings. Super gluing mdf to alu wwas already hard, keeping it all straight and square proved almost impossible and not long lasting at all. This will also probably help reducing slack and noise while increasing smootheness in the rotation
+The clock mechanism modules will now be fully 3d modeled printed, contaning ball bearings. Super gluing mdf to alu was already hard, keeping it all straight and square proved almost impossible and the end result was way too fragile. Modularity will allow me to swap/fix any clock without having to disassemble the whole thing. This will also probably help reducing slack and noise while increasing smootheness in the rotation
 
 I'll also develop all the code (using some stepper libs) which will probably include some animations to make the transitions look nice, some kind of remote control, and maybe a small display for UI.
 
