@@ -147,8 +147,8 @@ Im pretty happy with the results, not sure ill go any further, the repetitivenes
 
   The "final" version had some problems with slack. When using a bottom bearing to support both gears, meant the top one would have the combined play of both bearings. So i designed a finalfinal version, with a third bearing on top that couples to the lid, this way the gear assembly has almost zero lateral play.
   
-    <img src="/Images/V4/Mecanical/FinalV2/partes.jpg" width="450">   <img src="/Images/V4/Mecanical/FinalV2/semi.jpg" width="450">
-  <img src="/Images/V4/Mecanical/FinalV2/full.jpg" width="450">       <img src="/Images/V4/Mecanical/FinalV2/back.jpg" width="450">   
+  <img src="/Images/V4/Mecanical/FinalV2/partes.jpg" width="450">   <img src="/Images/V4/Mecanical/FinalV2/semi.jpg" width="450">
+  <img src="/Images/V4/Mecanical/FinalV2/full.jpg" width="450">     <img src="/Images/V4/Mecanical/FinalV2/back.jpg" width="450">   
   <img src="/Images/V4/Mecanical/FinalV2/gif.jpg" width="450">   
   
   
