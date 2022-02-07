@@ -145,6 +145,13 @@ Im pretty happy with the results, not sure ill go any further, the repetitivenes
   <img src="/Images/V4/Mecanical/Final/gears.jpg" width="450">   <img src="/Images/V4/Mecanical/Final/start.jpg" width="450"> 
   <img src="/Images/V4/Mecanical/Final/mid.jpg" width="450">   <img src="/Images/V4/Mecanical/Final/full.jpg" width="450"> 
 
+  The "final" version had some problems with slack. When using a bottom bearing to support both gears, meant the top one would have the combined play of both bearings. So i designed a finalfinal version, with a third bearing on top that couples to the lid, this way the gear assembly has almost zero lateral play.
+  
+  <img src="/Images/V4/Mecanical/FinalV2/partes.jpg" width="450">   <img src="/Images/V4/Mecanical/FinalV2/semi.jpg" width="450">
+  <img src="/Images/V4/Mecanical/FinalV2/full.jpg" width="450">     <img src="/Images/V4/Mecanical/FinalV2/back.jpg" width="450">   
+  <img src="/Images/V4/Mecanical/FinalV2/gif.jpg" width="450">   
+  
+  
   For the eletrical side of things, i pretty much given up on shift registers, so i'll most likely end up using one arduin for every digit, so 4 for the full clock.
   Comunication betwen arduinos seems easy, i might end up using a fifth arduino (a uno maybe) to calculate the positions of every dial, send them to the slaves and sync the start of movement.
   
