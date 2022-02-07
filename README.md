@@ -155,7 +155,7 @@ Im pretty happy with the results, not sure ill go any further, the repetitivenes
   For the eletrical side of things, i pretty much given up on shift registers, so i'll most likely end up using one arduin for every digit, so 4 for the full clock.
   Comunication betwen arduinos seems easy, i might end up using a fifth arduino (a uno maybe) to calculate the positions of every dial, send them to the slaves and sync the start of movement.
   
-  
+  Since This time the plan is to actually build a clock and not a "digit", ill start by building the base board that will hold everything together. A 120x45cm board
   
   
 </details>
