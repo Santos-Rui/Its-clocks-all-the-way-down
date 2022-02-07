@@ -149,7 +149,7 @@ Im pretty happy with the results, not sure ill go any further, the repetitivenes
   
   <img src="/Images/V4/Mecanical/FinalV2/partes.jpg" width="450">   <img src="/Images/V4/Mecanical/FinalV2/semi.jpg" width="450">
   <img src="/Images/V4/Mecanical/FinalV2/full.jpg" width="450">     <img src="/Images/V4/Mecanical/FinalV2/back.jpg" width="450">   
-  <img src="/Images/V4/Mecanical/FinalV2/gif.jpg" width="450">   
+  <img src="/Images/V4/Mecanical/FinalV2/gif.gif" width="450">   
   
   
   For the eletrical side of things, i pretty much given up on shift registers, so i'll most likely end up using one arduin for every digit, so 4 for the full clock.
