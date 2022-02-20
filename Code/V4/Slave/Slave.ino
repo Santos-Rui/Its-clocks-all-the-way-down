@@ -1,11 +1,9 @@
+#include <Dto.h>
+
 #include <Stepper.h>
-class Dto {
-    public:
-        boolean shortest; //TODO
-        int direction;
-        boolean lap;
-        int pos[12];
-};
+#include <Wire.h>                               
+
+
 
 
 class CustomStepper{
@@ -114,6 +112,7 @@ class CustomStepper{
       }
 };
 
+
 const int stepsPerRev = 2048; // change this to fit the number of steps per revolution
 const int lap = 4096;
 const int qlap = 1024;
@@ -142,13 +141,32 @@ void intializeMotors() {
 
 void draw (Dto dto) {
     for (int i = 0; i < nrOfSteppers; i++) {
-        stepperList[i]->setTarget(dto.pos[i], dto.lap, dto.shortest, dto.direction);
+        stepperList[i]->setTarget(dto.data[i], dto.lap, dto.shortest, dto.direction);
     }
   }
 
 void setup(){
     Serial.begin(9600);
+    Serial.println("Starting");
+    Wire.begin(1);                                
+
+
+    while (true) {
+        Serial.println("iter");
+
+        Wire.requestFrom(1, 28);
     
+        while(Wire.available()){
+            Serial.println("novo loop");
+            char c = Wire.read();    // receive a byte as character
+            Serial.print(c);         // print the character
+        }
+        
+   delay(500);
+    }
+    
+
+    //Steppers
     intializeMotors();
 
     delay(2000);
@@ -165,8 +183,8 @@ void loop() {
         delay(1000);
         Serial.println("Received a DTO...");
         Dto dto;
-        dto.pos[0]= 3;
-        dto.pos[1]= 4;
+        dto.data[0]= 3;
+        dto.data[1]= 4;
         dto.lap=0;
         dto.shortest=false;
         dto.direction=1;
