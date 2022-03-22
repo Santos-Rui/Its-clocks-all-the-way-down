@@ -156,6 +156,7 @@ Im pretty happy with the results, not sure ill go any further, the repetitivenes
   Comunication betwen arduinos seems easy, i might end up using a fifth arduino (a uno maybe) to calculate the positions of every dial, send them to the slaves and sync the start of movement.
   
   Since This time the plan is to actually build a clock and not a "digit", ill start by building the base board that will hold everything together. A 120x45cm board. Something like this
+  
   <img src="/Images/V4/MainBody/Holes.jpg" width="450">   <img src="/Images/V4/MainBody/painted.jpg" width="450">
   
 </details>
