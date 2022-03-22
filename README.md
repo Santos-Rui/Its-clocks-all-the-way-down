@@ -155,8 +155,8 @@ Im pretty happy with the results, not sure ill go any further, the repetitivenes
   For the eletrical side of things, i pretty much given up on shift registers, so i'll most likely end up using one arduin for every digit, so 4 for the full clock.
   Comunication betwen arduinos seems easy, i might end up using a fifth arduino (a uno maybe) to calculate the positions of every dial, send them to the slaves and sync the start of movement.
   
-  Since This time the plan is to actually build a clock and not a "digit", ill start by building the base board that will hold everything together. A 120x45cm board
-  
+  Since This time the plan is to actually build a clock and not a "digit", ill start by building the base board that will hold everything together. A 120x45cm board. Something like this
+  <img src="/Images/V4/MainBody/Holes.jpg" width="450">   <img src="/Images/V4/MainBody/painted.jpg" width="450">
   
 </details>
 
@@ -177,11 +177,11 @@ This would be making it double, or 4 times as big so i could play with the anima
 <details>
   <summary>Click to expand!</summary>
   
-Shift Registers - Expand IO 
+Shift Registers - Expand IO - Nope
   
 
-Using the same cable for 1-2 pin on every motor can theoretically give me 50% less IO ports needed. This will most likely NOT work
+Using the same cable for 1-2 pin on every motor can theoretically give me 50% less IO ports needed. This will most likely NOT work - Nope
 
 
-Turning every motor on and off on every step can also theoretically make me only need the current that one motor uses, and make it possible to wire them all in the same  circuit only using like 500mA , but can lead to drift overtime, will need testing.
+Turning every motor on and off on every step can also theoretically make me only need the current that one motor uses, and make it possible to wire them all in the same  circuit only using like 500mA , but can lead to drift overtime, will need testing. - Probably nope
 </details>
