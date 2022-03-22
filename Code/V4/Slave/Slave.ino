@@ -1,225 +1,141 @@
 #include <Dto.h>
-
+#include <CustomStepper.h>  
 #include <Stepper.h>
 #include <Wire.h>                               
 
+//number of the slave
+const int slaveNr = 1; //hours number 1 (left)
 
 
-
-class CustomStepper{
-    private:
-        int currentPos = 0;
-        int targetPos = 0;
-        int direction = 1;
-        int lap = 0;
-        int pins[4];
-        boolean doneMoving;
-        Stepper * stepper;  
-
-    public:
-    
-       CustomStepper(int steps, int a, int b, int c, int d){
-           stepper =  new Stepper(steps, a, b, c, d);
-           pins[0]=a;pins[1]=b;pins[2]=c;pins[3]=d; 
-       };
+//pin to trigger movement
+int triggerPin = 23;    // pushbutton connected to digital pin 7
 
 
-      void setTarget(int target, boolean lap, boolean shortest, int direction) {
-           Serial.print("SetTarget\n Input\ntarget: ");
-           Serial.println(target);
-           Serial.print("shortest:");
-           Serial.println(shortest);
-           Serial.print("directiont: ");
-           Serial.println(direction);
-           Serial.print("lap: ");
-           Serial.println(lap);
-           Serial.print("\n internal-\ntargetPos:");
-           Serial.println(targetPos);
-           Serial.print("currentPos: ");
-           Serial.println(currentPos);
-           Serial.println("\n");
-           
-    
-          if (lap) {
-              if((target<=currentPos && direction == 1) || (target>currentPos && direction == -1)){//se tivermos a fretne temos de dar a volta
-                  lap=1;
-              }
-          }
-          
-          if (shortest){
-              //calculate shortest direction          //TODO
-          }
-          if(target == currentPos && lap == 0) {
-            Serial.println("SamePos,lap+ anyway");
-            this->lap+=1;
-          }
-          direction=direction;
-          targetPos=target;
-          doneMoving= false; 
-      }
+//stepper settings
+const int stepsPerRev = 2048; //steps per revolution
+const int RPM = 15;           // Adjustable range of 28BYJ-48 stepper is 0~17 rpm
+const int nrOfSteppers = 12;
 
 
-      void setRPM (int RPM) {
-          stepper->setSpeed(RPM);
-      }
+//control vars
+boolean listeningMode = true;
+boolean waitingMode = true;
+static int steppersDone = 0;
 
 
+//"buffers"
+int val = 0;      // variable to store the read value
+String buffer = "";
 
-      boolean move() {
-           Serial.print("\n\nStarting Move \nCurrentPos: ");
-           Serial.println(currentPos);
-           Serial.print("targetPos:");
-           Serial.println(targetPos);
-           Serial.print("directiont: ");
-           Serial.println(direction);
-           Serial.print("lap: ");
-           Serial.println(lap); 
-           Serial.print("-------------\n");
-        
-           if(doneMoving) {
-                Serial.println("Done Moving...");
-                return false;
-            }
-          
-           if (currentPos == lap && direction == 1)  {       //lap situation (when its at the top)
-                if (lap>0) {
-                    Serial.println("Lap-- case 1...");
-                    lap--;
-               }
 
-                
-                currentPos = 0;                              //reset position
-           }
-           else if (currentPos == 0 && direction == -1)  {  //lap situation (when its at the top)
-                Serial.println("Lap-- case 2...");                
-                lap--;
-                currentPos = lap;                           //reset position
-           }
-           if (currentPos != targetPos || lap > 0){         //if not already in target move one step
-              Serial.println("Move 1 step...");
-              stepper->step(direction);
-              currentPos+=direction;
-          }
-          
-          if (currentPos == targetPos && lap == 0) {
-              Serial.println("Last Step...");              
-              doneMoving = true;
-              return true;
-          }
-          delay(5000);
-          return false;
-                   
-      }
+//Stepper positions
+int stepPos[nrOfSteppers][4] = {
+      {22,24,26,28},  {2 ,3, 4 ,5 }       ,    {10,11,12,13} ,  {6, 7, 8, 9},     // 1.1-1.2      2.1-2.2      1 2 
+      {A4,A5,A6,A7},{A12,A13,A14,A15}     ,    {A0,A1,A2,A3} , {A8,A9,A10,A11},   // 3.1-3.2      4.1-4.2      3 4
+      {47,49,51,53} , {39,41,43,45}       ,    {38,40,42,44} ,  {46,48,50,52}     // 5.1-5.2      6.1-6.2      5 6
 };
 
 
-const int stepsPerRev = 2048; // change this to fit the number of steps per revolution
-const int lap = 4096;
-const int qlap = 1024;
-
-const int RPM = 15;           // Adjustable range of 28BYJ-48 stepper is 0~17 rpm
-const int nrOfSteppers = 2;
-
-boolean listeningMode = true;
-boolean waitingMode = false;
-
-static int steppersDone = 0;
-
+//main struct
 CustomStepper * stepperList[nrOfSteppers];
 
-//1 2 
-//3 4
-//5 6
-void intializeMotors() {
-    int stepPos[nrOfSteppers][4] = {{14,15,16,17} , {22,24,26,28}};
 
+//intializes steppers with pins and rpm
+void intializeMotors() {
     for (int i = 0; i < nrOfSteppers; i++) {
         stepperList[i] = new CustomStepper(RPM,stepPos[i][0],stepPos[i][1],stepPos[i][2],stepPos[i][3]);
         stepperList[i]->setRPM(RPM);
     }   
 }
 
-void draw (Dto dto) {
+
+//maps the received dto to the global struct
+void mapDtoToStruct (Dto dto) {
     for (int i = 0; i < nrOfSteppers; i++) {
-        stepperList[i]->setTarget(dto.data[i], dto.lap, dto.shortest, dto.direction);
+        stepperList[i]->setTarget(dto.getData(i), dto.getLap(), dto.getShortest(), dto.getDirection());
     }
   }
 
-void setup(){
-    Serial.begin(9600);
-    Serial.println("Starting");
-    Wire.begin(1);                                
 
-
-    while (true) {
-        Serial.println("iter");
-
-        Wire.requestFrom(1, 28);
-    
-        while(Wire.available()){
-            Serial.println("novo loop");
-            char c = Wire.read();    // receive a byte as character
-            Serial.print(c);         // print the character
+//handles i2c recevive event
+//reads byte by byte and writes it to a string untill the last char '}'
+void receiveEvent(int size){
+    Serial.println("\nreceved event");
+    int i=0;
+    while(0<Wire.available()){    
+        char c = Wire.read();
+        buffer = buffer + c;
+        if(c=='}'){
+            Serial.println("Full string");
+            Serial.println(buffer);
+            listeningMode = false;
+            break;
         }
-        
-   delay(500);
     }
-    
+}
+
+
+void setup(){
+    Serial.println("Starting Setup");
+    Serial.begin(9600);
+
+    //Join i2c as a slave                           
+    Wire.begin(slaveNr);
+            
+    //register the receiver                        
+    Wire.onReceive(receiveEvent);
 
     //Steppers
     intializeMotors();
 
-    delay(2000);
     Serial.println("Exiting setup");
 }
 
 
 void loop() {
-     Serial.println("\n\n#############################################################################\n");
-     Serial.println("                         Starting loop Iteration...");
-     Serial.println("\n#############################################################################\n");
-     while (listeningMode){
-        //ouvir
-        delay(1000);
-        Serial.println("Received a DTO...");
-        Dto dto;
-        dto.data[0]= 3;
-        dto.data[1]= 4;
-        dto.lap=0;
-        dto.shortest=false;
-        dto.direction=1;
-        
-        Serial.println("Drawing...");
-       Serial.println("\n##########################");
-       Serial.println("Starting drawing...");
-       Serial.println("###########################\n");
-        draw(dto);
-        listeningMode = false;
-        waitingMode = true;
+    Serial.println("Starting loop Iteration...");    
+    Serial.println("Starting waiting for data...");
+    
+    while (listeningMode){
+        delay(25);
+    }
+      
+    Serial.println("Received data, creating dto...");
+    Dto dto;
+    dto.setDto(buffer);
+    
+    Serial.println("Mapping dto...");
+    mapDtoToStruct(dto);
+
+    //Clear buffer
+    buffer = "";
+
+    //Wait for the trigger to actually start moving
+    Serial.println("Starting waiting for trigger wire...");
+    while(waitingMode) {
+        val = digitalRead(triggerPin); // read the input pin
+        Serial.print("val = "); Serial.println(val);
+        if (val == HIGH) {
+              waitingMode = false;
+        }
+        delay(20);
     }
 
-    while(waitingMode) {
-        Serial.println("\n##########################");
-        Serial.println("Starting waiting...");
-        Serial.println("###########################\n");
-        //wait for trigger wire
-        delay(5000);
-        Serial.println("Moving...");
-        waitingMode = false;
-   }
-    
-    while (steppersDone < nrOfSteppers){
-       Serial.println("\n##########################");
-       Serial.println("Starting move Iteration...");
-       Serial.println("###########################\n");
-       for (int i = 0; i < nrOfSteppers; i++) {
-            if(stepperList[i]->move()){
+    //move untill every stepper is done
+    Serial.println("Moving...");
+    while (steppersDone != 12){
+        for (int i = 0; i < 12; i++) {
+            //Serial.print("moving stepper "); Serial.println(i);
+            boolean lastStep = stepperList[i]->move();
+            if(lastStep){
                 steppersDone++;
+                Serial.print("Sppers done "); Serial.println(steppersDone);
             }
         }
-    }        
-     Serial.println("Ending Iteration...");
-     Serial.println("\n########################################################\n");
+    }     
+ 
     steppersDone = 0;
     listeningMode = true;
+    waitingMode = true;
+    Serial.println("Ending Iteration...\n\n"); 
 }
