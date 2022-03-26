@@ -6,9 +6,13 @@
 //number of the slave
 const int slaveNr = 1; //hours number 1 (left)
 
-
 //pin to trigger movement
-int triggerPin = 23;    // pushbutton connected to digital pin 7
+int triggerPin = 25;    
+
+// RGB Pins
+#define BLUE 29
+#define GREEN 31
+#define RED 33
 
 
 //stepper settings
@@ -43,7 +47,7 @@ CustomStepper * stepperList[nrOfSteppers];
 //intializes steppers with pins and rpm
 void intializeMotors() {
     for (int i = 0; i < nrOfSteppers; i++) {
-        stepperList[i] = new CustomStepper(RPM,stepPos[i][0],stepPos[i][1],stepPos[i][2],stepPos[i][3]);
+        stepperList[i] = new CustomStepper(stepsPerRev,stepPos[i][0],stepPos[i][1],stepPos[i][2],stepPos[i][3]);
         stepperList[i]->setRPM(RPM);
     }   
 }
@@ -64,6 +68,11 @@ void receiveEvent(int size){
     int i=0;
     while(0<Wire.available()){    
         char c = Wire.read();
+        if (c == '!'){
+          waitingMode = false;
+          return;
+          }
+        
         buffer = buffer + c;
         if(c=='}'){
             Serial.println("Full string");
@@ -76,9 +85,10 @@ void receiveEvent(int size){
 
 
 void setup(){
-    Serial.println("Starting Setup");
     Serial.begin(9600);
-
+    Serial.println("Starting Setup");
+    pinMode(RED, OUTPUT); pinMode(GREEN, OUTPUT); pinMode(BLUE, OUTPUT);
+    digitalWrite(RED, HIGH);digitalWrite(GREEN, HIGH);digitalWrite(BLUE, HIGH); //white
     //Join i2c as a slave                           
     Wire.begin(slaveNr);
             
@@ -87,19 +97,22 @@ void setup(){
 
     //Steppers
     intializeMotors();
-
+    delay(3000);
+    digitalWrite(RED, LOW);digitalWrite(GREEN, LOW);digitalWrite(BLUE, LOW); //OFF
     Serial.println("Exiting setup");
+    
 }
 
 
 void loop() {
     Serial.println("Starting loop Iteration...");    
     Serial.println("Starting waiting for data...");
-    
+    digitalWrite(RED, LOW);digitalWrite(GREEN, LOW);digitalWrite(BLUE, HIGH); //BLUE
     while (listeningMode){
         delay(25);
     }
-      
+    digitalWrite(RED, HIGH);digitalWrite(GREEN, LOW);digitalWrite(BLUE, LOW); //red
+    
     Serial.println("Received data, creating dto...");
     Dto dto;
     dto.setDto(buffer);
@@ -111,20 +124,31 @@ void loop() {
     buffer = "";
 
     //Wait for the trigger to actually start moving
-    Serial.println("Starting waiting for trigger wire...");
-    while(waitingMode) {
-        val = digitalRead(triggerPin); // read the input pin
-        Serial.print("val = "); Serial.println(val);
-        if (val == HIGH) {
-              waitingMode = false;
-        }
+      Serial.println("Starting waiting for trigger wire...");
+      while(waitingMode) {
+  //      val = digitalRead(triggerPin); // read the input pin
+  //      Serial.print("val = "); Serial.println(val);
+  //      if (val == HIGH) {
+  //            int highs = 0;
+  //            while (highs<100) {
+  //                val = digitalRead(triggerPin); // read the input pin
+  //                if (val == HIGH) {
+  //                    highs++;
+  //                }
+  //                else {break;}
+  //            }
+  //            if(highs == 100){
+  //                waitingMode = false;
+  //            }
+//
+  //      }
         delay(20);
     }
-
+    digitalWrite(RED, HIGH);digitalWrite(GREEN, LOW);digitalWrite(BLUE, HIGH); //purple
     //move untill every stepper is done
     Serial.println("Moving...");
-    while (steppersDone != 12){
-        for (int i = 0; i < 12; i++) {
+    while (steppersDone != nrOfSteppers){
+        for (int i = 0; i < nrOfSteppers; i++) {
             //Serial.print("moving stepper "); Serial.println(i);
             boolean lastStep = stepperList[i]->move();
             if(lastStep){
@@ -133,7 +157,7 @@ void loop() {
             }
         }
     }     
- 
+    val=0;
     steppersDone = 0;
     listeningMode = true;
     waitingMode = true;

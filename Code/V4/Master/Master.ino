@@ -5,11 +5,19 @@
 //clock
 DS1307 clock;//define a object of DS1307 class
 
+//pin to trigger movement
+int triggerPin = 25;  
+
 //Dtos for 4 clocks hardcoded like a noob
 Dto dto1;
 Dto dto2;
 Dto dto3;
 Dto dto4;
+
+// RGB Pins
+#define BLUE 33
+#define GREEN 35
+#define RED 37
 
 //positions for each 1/8 of the circle
                         int TOP = 0;
@@ -22,7 +30,7 @@ int LEFT = 1536;                              int RIGHT = 512;
 //How to draw each number + rest position + degrees
 int numbers[13][12] = { {  RIGHT  ,  BOTTOM  ,  LEFT  , BOTTOM ,  BOTTOM  ,    TOP   , BOTTOM ,   TOP  ,    TOP   ,   RIGHT  ,  TOP  , LEFT },        //ZERO
                         {TOP_LEFT , TOP_LEFT , BOTTOM , BOTTOM , TOP_LEFT , TOP_LEFT ,   TOP  , BOTTOM , TOP_LEFT , TOP_LEFT ,  TOP  , TOP  },        //ONE
-                        {  25  ,   RIGHT  ,  LEFT  , BOTTOM ,  RIGHT   ,  BOTTOM  ,   TOP  ,  LEFT  ,    TOP   ,   RIGHT  ,  LEFT , LEFT },        //TWO
+                        {  RIGHT  ,   RIGHT  ,  LEFT  , BOTTOM ,  RIGHT   ,  BOTTOM  ,   TOP  ,  LEFT  ,    TOP   ,   RIGHT  ,  LEFT , LEFT },        //TWO
                         {  RIGHT  ,   RIGHT  ,  LEFT  , BOTTOM ,  RIGHT   ,  BOTTOM  ,   TOP  ,  LEFT  ,    TOP   ,   RIGHT  ,  LEFT , LEFT },        //THREE
                         { BOTTOM  ,  BOTTOM  , BOTTOM , BOTTOM ,   TOP    ,   RIGHT  ,   TOP  , BOTTOM , TOP_LEFT , TOP_LEFT ,  TOP  , TOP  },        //FOUR
                         {  RIGHT  ,  BOTTOM  ,  LEFT  ,  LEFT  ,   TOP    ,   RIGHT  , BOTTOM ,  LEFT  ,   RIGHT  ,   RIGHT  ,  TOP  , LEFT },        //FIVE
@@ -89,14 +97,19 @@ void drawDtos(){
 
 
 void setup(){
+    Serial.begin(9600);
     Serial.println("Starting setup");
     
-    Serial.begin(9600);
+    pinMode(RED, OUTPUT); pinMode(GREEN, OUTPUT); pinMode(BLUE, OUTPUT);
+    digitalWrite(RED, HIGH);digitalWrite(GREEN, LOW);digitalWrite(BLUE, HIGH); //white
+    
     clock.begin();
     Wire.begin(); // join i2c bus (address optional for master)
-    digitalWrite(7, LOW);
-        
+    
+    digitalWrite(RED, LOW);digitalWrite(GREEN, LOW);digitalWrite(BLUE, LOW); //OFF
     Serial.println("Exiting setup");
+    digitalWrite(triggerPin, LOW);
+
 }
 
 
@@ -105,13 +118,33 @@ void loop() {
     int seconds = clock.second;
     Serial.println(clock.second, DEC); 
 
-    if(seconds == 15) {
-        Serial.println("Drawing dtos... ");
-        drawDtos();
-        delay(3000);
+    if(seconds > 30){
+        seconds = seconds - 30;
+      }
+    Serial.println(seconds); 
+
+    if(seconds < 10 && seconds != 0) {
+      digitalWrite(BLUE, HIGH); //BLUE
+      delay(100);
+      digitalWrite(BLUE, LOW); //OFF
     }
 
-    if(seconds == 30) {
+    else if(seconds == 10) {
+        Serial.println("Drawing dtos... ");
+        digitalWrite(BLUE, HIGH); //BLUE
+        drawDtos();
+        delay(3000);
+        digitalWrite(BLUE, LOW); //OFF
+    }
+
+    else if(seconds < 20) {
+        digitalWrite(RED, HIGH); //RED
+        delay(100);
+        digitalWrite(RED, LOW); //OFF
+    }
+
+    else if(seconds == 20) {
+        digitalWrite(RED, HIGH); //RED
         Serial.println("Sending dtos... ");     
         sendDto(dto1, 1);
         delay(50);
@@ -121,13 +154,24 @@ void loop() {
         delay(50);               
         //sendDto(dto4, 4);
         delay(50);
+        digitalWrite(RED, LOW); //OFF
     }
 
-    if(seconds == 0) {
+    else if(seconds < 30) {
+        digitalWrite(RED, HIGH); digitalWrite(BLUE, HIGH); //Purple? green is broken...
+        delay(100);
+        digitalWrite(RED, LOW); digitalWrite(BLUE, LOW); //OFF
+    }
+
+    if(seconds == 30 || seconds == 0) {
+        digitalWrite(RED, HIGH) ;digitalWrite(BLUE, HIGH); //Purple? green is broken...
         Serial.println("Sending trigger...");
-        digitalWrite(23, HIGH);
-        delay(500);
-        digitalWrite(23, LOW);
+        
+        Wire.beginTransmission(1);
+        Wire.write('!');
+        Wire.endTransmission();    // stop transmitting
+        
+        digitalWrite(RED, LOW) ;digitalWrite(BLUE, LOW); //OFF
     }     
-    delay(800);
+    delay(700);
 }
