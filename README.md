@@ -159,12 +159,14 @@ Im pretty happy with the results, not sure ill go any further, the repetitivenes
   
   <img src="/Images/V4/MainBody/Holes.jpg" width="450">   <img src="/Images/V4/MainBody/painted.jpg" width="450">
   
-  Add a psu and some cables
+  Add a psu and some power cables
   
   <img src="/Images/V4/MainBody/body1.jpg" width="900">   
   
   <img src="/Images/V4/MainBody/body3.jpg" width="450">
 
+  Some more data cables, and we have a functioning master slave/configuration. The slave is agnostic of any logic or numbers, it only receives positions, and some configs on how to move. After sending all the data, an aditional signal is sent to start moving every slave at once.
+    <img src="/Images/V4/MainBody/slavemaster1.jpg" width="450">
   
 </details>
 
