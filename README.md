@@ -161,7 +161,9 @@ Im pretty happy with the results, not sure ill go any further, the repetitivenes
   
   Add a psu and some cables
   
-  <img src="/Images/V4/MainBody/body1.jpg" width="450">   <img src="/Images/V4/MainBody/body3.jpg" width="450">
+  <img src="/Images/V4/MainBody/body1.jpg" width="900">   
+  
+  <img src="/Images/V4/MainBody/body3.jpg" width="450">
 
   
 </details>
