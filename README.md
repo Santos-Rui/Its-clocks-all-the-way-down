@@ -4,7 +4,7 @@ A digital clock made of 24 analog clocks.
 
 Powered by an arduino, each clock handle is a stepper motor, totaling 48 steppers.
 
-Why? because i'm part time masochist and like to having to do the same thing dozens of times 
+Why? because i'm part time masochist and like having to do the same thing dozens of times 
 
 
 
